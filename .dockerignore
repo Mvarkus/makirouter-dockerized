@@ -1,0 +1,4 @@
+.docker
+vendor
+.dockerignore
+docker-compose.yml

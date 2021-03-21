@@ -1,0 +1,23 @@
+{
+    "name": "mvarkus/dockerizedrouter",
+    "description": "Dockerized version of MakiRouter",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Maksim Varkus",
+            "email": "mvarkus.w@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Mvarkus/makiRouter"
+        }
+    ],
+    "require": {
+        "mvarkus/makirouter": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {"App\\": "app/"}
+    }
+}

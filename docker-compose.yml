@@ -1,0 +1,25 @@
+# Services
+services:
+  # Nginx service
+  nginx:
+    image: nginx:1.19.7-alpine
+    ports:
+      - 8000:80
+      - 9000:9000
+    volumes:
+      - ./:/var/www/local:ro
+      - ./.docker/nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - php
+    
+  # Php service
+  php:
+    build: .
+    working_dir: /var/www/local
+    volumes:
+      - ./app:/var/www/local/app
+      - ./public:/var/www/local/public
+      - ./routes:/var/www/local/routes
+      - ./composer.json:/var/www/local/composer.json
+      - ./composer.lock:/var/www/local/composer.lock
+    command: sh -c "composer install && php-fpm"
